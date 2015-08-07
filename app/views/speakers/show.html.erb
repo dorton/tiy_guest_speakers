@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @speaker.pic, class: "img-resposive img-thumbnail"%>
+
 <p>
   <strong>Name:</strong>
   <%= @speaker.name %>
@@ -10,10 +12,7 @@
   <%= @speaker.date %>
 </p>
 
-<p>
-  <strong>Pic:</strong>
-  <%= @speaker.pic %>
-</p>
+
 
 <p>
   <strong>Company:</strong>
@@ -28,6 +27,11 @@
 <p>
   <strong>Title:</strong>
   <%= @speaker.title %>
+</p>
+
+<p>
+  <strong>Semester Start Date:</strong>
+  <%= @speaker.semester.start_date.strftime('%B %d, %Y') %>
 </p>
 
 <%= link_to 'Edit', edit_speaker_path(@speaker) %> |

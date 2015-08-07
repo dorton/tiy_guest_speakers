@@ -15,12 +15,13 @@ gem "pg"
 gem "rack-cors", require: "rack/cors"
 gem "sass-rails"
 gem "uglifier", ">= 1.3.0"
+gem 'bootstrap-material-design'
 
 group :development do
   gem "better_errors"
   gem "meta_request"
   gem "quiet_assets"
-  gem "spring"
+
 end
 
 group :development, :test do

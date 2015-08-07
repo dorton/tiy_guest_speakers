@@ -1,3 +1,14 @@
 // Place all the styles related to the speakers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+}
+
+.card {
+  height: 350px;
+  width: 320px;
+}

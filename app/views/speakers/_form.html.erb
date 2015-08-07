@@ -35,6 +35,10 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+  <div>
+    <%= f.label :semester %><br>
+    <%= f.collection_select :semester_id, Semester.order(:start_date),:id,:start_date, include_blank: true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
