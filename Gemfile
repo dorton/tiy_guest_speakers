@@ -21,7 +21,7 @@ group :development do
   gem "better_errors"
   gem "meta_request"
   gem "quiet_assets"
-
+  gem "spring"
 end
 
 group :development, :test do

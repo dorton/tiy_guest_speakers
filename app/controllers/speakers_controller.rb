@@ -1,6 +1,5 @@
 class SpeakersController < InheritedResources::Base
 
-
   private
 
     def speaker_params

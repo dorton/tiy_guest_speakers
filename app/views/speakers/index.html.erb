@@ -8,7 +8,7 @@
   <div class="card">
     <div class="card-content">
       <div class="card-image">
-        <%= image_tag speaker.pic, class: "card-image img-resposive img-thumbnail" %>
+        <%= image_tag(speaker.pic, class: "card-image img-resposive img-thumbnail") %>
       </div>
           <div class="card-body">
             <h4><%= mail_to speaker.email, speaker.name %></h4>
