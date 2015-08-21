@@ -18,7 +18,7 @@ index do
 
   column :name
   column :date
-  column "semester" do |speaker| speaker.semester.start_date end
+  # column "semesters" do |speaker| speaker.semester.start_date end
   column :company
   column :email
   column :title

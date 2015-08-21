@@ -1,4 +1,4 @@
 class Speaker < ActiveRecord::Base
-  belongs_to :semester
+  has_many :semesters
   default_scope { order('date ASC') }
 end

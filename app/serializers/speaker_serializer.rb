@@ -1,13 +1,12 @@
 class SpeakerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :date, :pic, :company, :email, :title, :semester_start_date
+  attributes :id, :name, :date, :pic, :company, :email, :title
 
+has_many :semesters
 
   def date
     object.date.strftime('%m/%d/%Y')
   end
 
-  def semester_start_date
-    object.semester.start_date.strftime('%m/%d/%Y')
-  end
+
 
 end
