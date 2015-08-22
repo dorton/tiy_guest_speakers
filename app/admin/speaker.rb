@@ -1,5 +1,5 @@
 ActiveAdmin.register Speaker do
-  permit_params :name, :date, :pic, :company, :email, :title, :semester
+  permit_params :name, :date, :pic, :company, :email, :title, :semester_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -18,7 +18,7 @@ index do
 
   column :name
   column :date
-  # column "semesters" do |speaker| speaker.semester.start_date end
+  column "semesters" do |speaker| speaker.semester.start_date end
   column :company
   column :email
   column :title
