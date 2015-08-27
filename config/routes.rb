@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/railsadmin', as: 'rails_admin'
   resources :speakers
   devise_for :admin_users, ActiveAdmin::Devise.config
 

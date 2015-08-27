@@ -16,6 +16,7 @@ gem "rack-cors", require: "rack/cors"
 gem "sass-rails"
 gem "uglifier", ">= 1.3.0"
 gem 'bootstrap-material-design'
+gem 'rails_admin'
 
 group :development do
   gem "better_errors"
