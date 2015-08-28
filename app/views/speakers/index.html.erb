@@ -3,7 +3,7 @@
 <h1>Guest Speakers </h1>
 
 
-<% @this_cohort.each do |speaker| %>
+<% @speakers.each do |speaker| %>
 <div class="col-md-3">
   <div class="card">
     <div class="card-content">
@@ -14,7 +14,7 @@
             <h4><%= mail_to speaker.email, speaker.name %></h4>
             <p>Company - <%= speaker.company %></p>
             <p>Title - <%= speaker.title %></p>
-            <p>Date - <%= speaker.date.strftime('%m/%d/%Y') %></p>
+            <p>Date - <%= speaker.talks.pluck(:date).last.strftime('%m/%d/%Y') %></p>
           </div>
     </div>
   </div>
