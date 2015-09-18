@@ -18,6 +18,8 @@ gem "uglifier", ">= 1.3.0"
 gem 'bootstrap-material-design'
 gem 'rails_admin'
 
+gem 'rails_12factor', group: :production
+
 group :development do
   gem "better_errors"
   gem "meta_request"
