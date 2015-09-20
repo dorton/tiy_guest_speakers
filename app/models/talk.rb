@@ -4,8 +4,6 @@ class Talk < ActiveRecord::Base
 
   default_scope { order('date ASC') }
 
-def name
-  date.strftime('%m/%d/%Y') + " - " + speaker.name
-end
+
 
 end
