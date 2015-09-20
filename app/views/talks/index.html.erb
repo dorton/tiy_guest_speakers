@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Guest Speakers </h1>
+
+
+<% @talks.each do |talk| %>
+<div class="col-md-3">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-image">
+        <%= image_tag(talk.speaker.pic, class: "card-image img-resposive img-thumbnail") %>
+      </div>
+          <div class="card-body">
+            <h4><%= mail_to talk.speaker.email, talk.speaker.name %></h4>
+            <p>Company - <%= talk.speaker.company %></p>
+            <p>Title - <%= talk.speaker.title %></p>
+            <p>Date - <%= talk.date.strftime('%m/%d/%Y') %></p>
+          </div>
+    </div>
+  </div>
+</div>
+<% end %>
