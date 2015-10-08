@@ -27,6 +27,23 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
+    config.model 'Speaker' do
+      list do
+        field :name
+        field :company
+        field :email
+        field :pic
+      end
+    end
+
+    config.model 'Talk' do
+      list do
+        field :speaker
+        field :date
+        field :semester
+      end
+    end
+
     ## With an audit adapter, you can add:
     # history_index
     # history_show
