@@ -9,7 +9,7 @@ def semester
 end
 
 def date
-  object.talks.pluck(:date).last.strftime('%m/%d/%Y')
+  object.talks.pluck(:date).last.try(:strftime, '%m/%d/%Y')
 end
 
 
