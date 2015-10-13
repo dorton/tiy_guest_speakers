@@ -12,6 +12,12 @@
   max-width: 100%;
 }
 
+.mdl-card__title-text {
+  a:hover {
+      color: blue;
+  }
+}
+
 .content-grid {
   max-width: 1180px;
 }
@@ -26,4 +32,8 @@
 
 .mdl-layout__content {
   padding: 2em;
+}
+
+.li {
+
 }
