@@ -5,59 +5,32 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
 </head>
 <body>
-    <div class="navbar navbar-inverse">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-icon" href="/"><%= image_tag("TIY-white.png", size: "60x60")%></a>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header ">
+    <header class="mdl-layout__header mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row">
+        <a class="navbar-icon" href="/"><%= image_tag("TIY-white.png", size: "60x60")%></a>
+        <span><%= link_to('TIY Guest Speakers', root_path, class: "mdl-layout-title mdl-navigation__link") %></span>
+        <div class="mdl-layout-spacer"></div>
+
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Semesters</span>
+      <nav class="mdl-navigation">
+        <% Semester.uniq.pluck(:start_date).each do |semester| %>
+          <%= link_to semester.strftime('%b %d, %Y'), root_path %>
+        <% end %>
+      </nav>
     </div>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
-<!--      <li class="active"><a href="javascript:void(0)">Active</a></li>
- <li><a href="javascript:void(0)">Link</a></li>
- <li class="dropdown">
-   <a href="http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-   <ul class="dropdown-menu">
-     <li><a href="javascript:void(0)">Action</a></li>
-     <li><a href="javascript:void(0)">Another action</a></li>
-     <li><a href="javascript:void(0)">Something else here</a></li>
-     <li class="divider"></li>
-     <li class="dropdown-header">Dropdown header</li>
-     <li><a href="javascript:void(0)">Separated link</a></li>
-     <li><a href="javascript:void(0)">One more separated link</a></li>
-     </ul>
-   </li> -->
-      </ul>
-    <!--   <form class="navbar-form navbar-left">
-      <input type="text" class="form-control col-lg-8" placeholder="Search">
-    </form> -->
-      <ul class="nav navbar-nav navbar-right">
-<!--         <li><a href="javascript:void(0)">Link</a></li>
- -->        <li class="dropdown">
-          <a href="http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Semester <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <% Semester.uniq.pluck(:start_date).each do |semester| %>
-              <li><%= link_to semester.strftime('%b %d, %Y'), root_path %></li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-<div class="container">
-<%= yield %>
+      <main class="mdl-layout__content">
+
+        <%= yield %>
+
+      </main>
 </div>
 </body>
 </html>

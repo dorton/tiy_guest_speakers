@@ -3,20 +3,21 @@
 <h1>Guest Speakers </h1>
 
 
-<% @talks.each do |talk| %>
-<div class="col-md-3">
-  <div class="card">
-    <div class="card-content">
-      <div class="card-image">
-        <%= image_tag(talk.speaker.pic, class: "card-image img-resposive img-thumbnail") %>
+<div class="content-grid mdl-grid">
+  <% @talks.each do |talk| %>
+    <div class="mdl-card mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-shadow--4dp">
+      <figure class="mdl-card__media">
+        <%= image_tag talk.speaker.pic %>
+      </figure>
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text"><%= mail_to talk.speaker.email, talk.speaker.name %></h2>
       </div>
-          <div class="card-body">
-            <h4><%= mail_to talk.speaker.email, talk.speaker.name %></h4>
-            <p>Company - <%= talk.speaker.company %></p>
-            <p>Title - <%= talk.speaker.title %></p>
-            <p>Date - <%= talk.date.strftime('%m/%d/%Y') %></p>
-          </div>
+      <div class="mdl-card__supporting-text">
+        <p>Company - <%= talk.speaker.company %></p>
+        <p>Title - <%= talk.speaker.title %></p>
+        <p>Date - <%= talk.date.strftime('%m/%d/%Y') %></p>
+      </div>
+
     </div>
-  </div>
+  <% end %>
 </div>
-<% end %>

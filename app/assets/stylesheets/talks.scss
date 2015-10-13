@@ -2,13 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  flex-shrink: 1;
+
+
+.mdl-card__media {
+    margin: 0;
 }
 
-.card {
-  height: 425px;
-  width: 320px;
+.mdl-card__media > img {
+  max-width: 100%;
+}
+
+.content-grid {
+  max-width: 1180px;
+}
+
+.mdl-layout__header-row {
+  background-color: rgb(57,71,78);
+}
+
+.mdl-layout__header {
+  background-color: rgb(57,71,78) !important;
+}
+
+.mdl-layout__content {
+  padding: 2em;
 }

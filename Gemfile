@@ -15,7 +15,7 @@ gem "pg"
 gem "rack-cors", require: "rack/cors"
 gem "sass-rails"
 gem "uglifier", ">= 1.3.0"
-gem 'bootstrap-material-design'
+gem 'material_design_lite-rails'
 gem 'rails_admin'
 
 gem 'rails_12factor', group: :production
