@@ -12,10 +12,8 @@
   max-width: 100%;
 }
 
-.mdl-card__title-text {
-  a:hover {
-      color: blue;
-  }
+a:hover {
+    color: #38678b;
 }
 
 .content-grid {
@@ -34,6 +32,6 @@
   padding: 2em;
 }
 
-.li {
-
+.mdl-navigation {
+  padding: 2em;
 }
