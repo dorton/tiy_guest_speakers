@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'semester/index'
-  get '/students/:id', to: 'home#student', as: 'student'
-
   get 'semester/:id', to: 'semester#show', as: 'semester'
 
 
-  mount RailsAdmin::Engine => '/railsadmin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :speakers
   resources :talks
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
 
-  ActiveAdmin.routes(self)
   mount API::Base, at: "/"
   mount GrapeSwaggerRails::Engine, at: "/documentation"
   # The priority is based upon order of creation: first created -> highest priority.
