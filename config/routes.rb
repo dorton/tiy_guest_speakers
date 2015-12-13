@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'semester/index'
+  get '/students/:id', to: 'home#student', as: 'student'
+
+  get 'semester/:id', to: 'semester#show', as: 'semester'
+
+
   mount RailsAdmin::Engine => '/railsadmin', as: 'rails_admin'
   resources :speakers
   resources :talks
@@ -12,7 +18,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: 'talks#index'
+  root to: 'semester#show', id: Semester.last
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

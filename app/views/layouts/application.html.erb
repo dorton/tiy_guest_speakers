@@ -22,8 +22,8 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">Semesters</span>
       <nav class="mdl-navigation">
-        <% Semester.uniq.pluck(:start_date).each do |semester| %>
-          <%= link_to semester.strftime('%b %d, %Y'), root_path %>
+        <% Semester.all.each do |semester| %>
+          <%= link_to semester.start_date.strftime('%B %Y'), semester_path(semester) %>
         <% end %>
       </nav>
     </div>
