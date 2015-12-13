@@ -23,8 +23,10 @@
       <span class="mdl-layout-title">Semesters</span>
       <nav class="mdl-navigation">
         <% Semester.all.each do |semester| %>
-          <%= link_to semester.start_date.strftime('%B %Y'), semester_path(semester) %>
+          <%= link_to semester.start_date.strftime('%b %Y') + ' - ' + (semester.start_date + 12.weeks).strftime('%b %Y'), semester_path(semester) %>
         <% end %>
+        <hr>
+        <%= link_to 'Admin', rails_admin_path %>
       </nav>
     </div>
       <main class="mdl-layout__content">
