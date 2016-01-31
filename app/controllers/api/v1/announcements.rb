@@ -5,17 +5,14 @@ module API
 
       resource :announcements do
         desc "Return all announcements"
-              params do
-                optional :date, type: Date, desc: "Start Date of Semester"
-              end
 
               get "", root: :announcements do
 
-                query = Announcement.all
+                query = Announcement.all.order( 'date ASC' )
                 query
               end
 
-        desc "Return a announcement"
+        desc "Return an announcement"
         params do
           requires :id, type: String, desc: "ID of the announcement"
         end
