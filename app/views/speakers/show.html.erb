@@ -9,22 +9,29 @@
             <a href="#company" class="mdl-tabs__tab">Company</a>
         </div>
         <div class="mdl-tabs__panel is-active" id="contact">
-          <h5><b>Name:</b> <%= @speaker.name %></h5>
-          <% if @speaker.bio? %>
-            <h5><b>Bio:</b><br> <%= @speaker.bio %></h5>
-          <% end %>
-          <% if @speaker.email? %>
-            <%= mail_to @speaker.email do image_tag "email.png" end %>
-          <% end %>
-          <% if @speaker.twitter? %>
-            <%= link_to @speaker.twitter do image_tag "twitter.png" end %>
-          <% end %>
-          <% if @speaker.linkedin? %>
-            <%= link_to @speaker.linkedin do image_tag "linkedin.png" end %>
-          <% end %>
-          <% if @speaker.github? %>
-            <%= link_to @speaker.github do image_tag "github.png" end %>
-          <% end %>
+          <h2 class="center"><%= @speaker.name %></h2>
+          <div class="center">
+            <% if @speaker.email? %>
+              <%= mail_to @speaker.email do image_tag "email.png" end %>
+            <% end %>
+            <% if @speaker.twitter? %>
+              <%= link_to @speaker.twitter do image_tag "twitter.png" end %>
+            <% end %>
+            <% if @speaker.linkedin? %>
+              <%= link_to @speaker.linkedin do image_tag "linkedin.png" end %>
+            <% end %>
+            <% if @speaker.github? %>
+              <%= link_to @speaker.github do image_tag "github.png" end %>
+            <% end %>
+            </div>
+            <div class="center">
+              <% if @speaker.bio? %>
+                <h5><%= @speaker.bio %></h5>
+              <% end %>              
+            </div>
+
+
+
         </div>
         <div class="mdl-tabs__panel" id="company">
           <% if @speaker.company_logo? %>
