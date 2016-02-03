@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223031437) do
+ActiveRecord::Schema.define(version: 20160203041307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,9 +72,16 @@ ActiveRecord::Schema.define(version: 20151223031437) do
     t.string   "company"
     t.string   "email"
     t.string   "title"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "semester_id"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "company_url"
+    t.string   "company_logo"
+    t.string   "company_about"
+    t.string   "bio"
+    t.string   "github"
   end
 
   add_index "speakers", ["semester_id"], name: "index_speakers_on_semester_id", using: :btree

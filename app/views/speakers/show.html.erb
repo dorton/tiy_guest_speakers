@@ -1,38 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @speaker.pic, class: "img-resposive img-thumbnail"%>
+<div class="mdl-grid center">
+  <div class="mdl-cell mdl-cell--6-col">
+    <div class="center"><%= image_tag @speaker.pic, class: "circle" %></div>
+      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar">
+            <a href="#contact" class="mdl-tabs__tab is-active">Contact</a>
+            <a href="#company" class="mdl-tabs__tab">Company</a>
+        </div>
+        <div class="mdl-tabs__panel is-active" id="contact">
+          <h5><b>Name:</b> <%= @speaker.name %></h5>
+          <% if @speaker.bio? %>
+            <h5><b>Bio:</b><br> <%= @speaker.bio %></h5>
+          <% end %>
+          <% if @speaker.email? %>
+            <%= mail_to @speaker.email do image_tag "email.png" end %>
+          <% end %>
+          <% if @speaker.twitter? %>
+            <%= link_to @speaker.twitter do image_tag "twitter.png" end %>
+          <% end %>
+          <% if @speaker.linkedin? %>
+            <%= link_to @speaker.linkedin do image_tag "linkedin.png" end %>
+          <% end %>
+          <% if @speaker.github? %>
+            <%= link_to @speaker.github do image_tag "github.png" end %>
+          <% end %>
+        </div>
+        <div class="mdl-tabs__panel" id="company">
+          <% if @speaker.company_logo? %>
+            <h5 class="center"><%= link_to @speaker.company_url do image_tag @speaker.company_logo end %></h5>
+          <% else %>
+            <h5 class="center"><%= link_to @speaker.company_url %></h5>
+          <% end %>
+          <h5><b>Title:</b> <%= @speaker.title %></h5>
+          <% if @speaker.company_about? %>
+            <h5><b>About:</b><br> <%= @speaker.company_about %></h5>
+          <% end %>
+        </div>
+      </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @speaker.name %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @speaker.date %>
-</p>
-
-
-
-<p>
-  <strong>Company:</strong>
-  <%= @speaker.company %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @speaker.email %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @speaker.title %>
-</p>
-
-<p>
-  <strong>Semester Start Date:</strong>
-  <%= @speaker.semester.start_date.strftime('%B %d, %Y') %>
-</p>
-
-<%= link_to 'Edit', edit_speaker_path(@speaker) %> |
-<%= link_to 'Back', speakers_path %>
+</div>

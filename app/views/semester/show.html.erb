@@ -9,7 +9,7 @@
         <%= image_tag talk.speaker.pic %>
       </figure>
       <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text"><%= mail_to talk.speaker.email, talk.speaker.name %></h2>
+        <h2 class="mdl-card__title-text"><%= link_to talk.speaker.name, talk.speaker %></h2>
       </div>
       <div class="mdl-card__supporting-text">
         <p>Company - <%= talk.speaker.company %></p>
