@@ -26,7 +26,8 @@
             </div>
             <div class="center">
               <% if @speaker.bio? %>
-                <h5><%= @speaker.bio %></h5>
+                <h6>  <%= @speaker.bio %></h6>
+
               <% end %>
             </div>
 
@@ -41,7 +42,7 @@
           <% end %>
           <h5><b>Title:</b> <%= @speaker.title %></h5>
           <% if @speaker.company_about? %>
-            <h5><b>About:</b><br> <%= @speaker.company_about %></h5>
+            <h6><b>About:</b><br> <%= @speaker.company_about %></h6>
           <% end %>
         </div>
       </div>
