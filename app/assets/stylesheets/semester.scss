@@ -8,8 +8,12 @@ body, a, h1, h2, h3, h4, h5, h6 {
 
 
 .mdl-card__media img {
-  height: 280px;
-  width: 280px;
+  height: 312px;
+  width: 312px;
   overflow: hidden;
 
+}
+
+.mdl-card__media {
+  background-color: #FFFFFF !important;
 }
