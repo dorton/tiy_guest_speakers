@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: 'semester#show', id: Semester.last
+  root to: 'semester#show', id: Semester.last.id
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
