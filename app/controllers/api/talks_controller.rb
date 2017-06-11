@@ -1,4 +1,4 @@
-class Api::TalksController < ApplicationController
+class Api::TalksController < Api::ApiController
 
   before_action :set_talk, only: [:show, :update, :destroy]
 

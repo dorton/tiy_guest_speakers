@@ -1,4 +1,4 @@
-class Api::SpeakersController < ApplicationController
+class Api::SpeakersController < Api::ApiController
 
   before_action :set_speaker, only: [:show, :update, :destroy]
 
@@ -14,12 +14,13 @@ class Api::SpeakersController < ApplicationController
   end
 
   def create
-    @speaker = Speaker.new(speaker_params)
-    if @speaker.save
-      render :show, status: :created, location: @speaker
-    else
-      render json: @speaker.errors, status: :unprocessable_entity
-    end
+    @speaker = Speaker.find_or_create_by!(speaker_params)
+      talk = @speaker.talks.new
+      talk.semester = Semester.last
+      talk.date = params[:talk_date]
+      talk.save!
+
+      render json: @speaker
   end
 
   def update
@@ -43,6 +44,6 @@ class Api::SpeakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:name, :date, :pic, :company, :email, :title, :semester_id)
+      params.require(:speaker).permit(:name, :pic, :company, :email, :title, :semester_id, :talk_date, talk_ids: [])
     end
 end
