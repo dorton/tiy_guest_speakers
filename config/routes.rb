@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   devise_for :users
   get 'semester/index'
   get 'semester/:id', to: 'semester#show', as: 'semester'
@@ -8,6 +10,11 @@ Rails.application.routes.draw do
   resources :speakers
   resources :talks
 
+  namespace :api do
+    resources :speakers
+    resources :talks
+  end
+
 
   mount API::Base, at: "/"
   mount GrapeSwaggerRails::Engine, at: "/documentation"
@@ -15,7 +22,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: 'semester#show', id: "#{Semester.last.id}"
+  root to: 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

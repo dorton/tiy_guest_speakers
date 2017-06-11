@@ -17,6 +17,8 @@ gem "sass-rails"
 gem "uglifier", ">= 1.3.0"
 gem 'material_design_lite-rails'
 gem 'rails_admin'
+gem 'jbuilder', '~> 2.5'
+
 
 gem 'rails_12factor', group: :production
 
