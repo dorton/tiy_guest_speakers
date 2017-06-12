@@ -17,6 +17,7 @@ class Api::SpeakersController < Api::ApiController
     @speaker = Speaker.find_or_initialize_by(email: params[:email])
     if @speaker.new_record?
       @speaker.name = params[:name]
+      @speaker.pic = "https://placeimg.com/640/480/tech"
       @speaker.save
     end
     talk = @speaker.talks.new
