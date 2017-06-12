@@ -14,11 +14,15 @@ class Api::SpeakersController < Api::ApiController
   end
 
   def create
-    @speaker = Speaker.find_or_create_by!(speaker_params)
-      talk = @speaker.talks.new
-      talk.semester = Semester.last
-      talk.date = params[:talk_date]
-      talk.save!
+    @speaker = Speaker.find_or_initialize_by(email: params[:email])
+    if @speaker.new_record?
+      @speaker.name = params[:name]
+      @speaker.save
+    end
+    talk = @speaker.talks.new
+    talk.semester = Semester.last
+    talk.date = params[:talk_date]
+    talk.save!
 
       render json: @speaker
   end
