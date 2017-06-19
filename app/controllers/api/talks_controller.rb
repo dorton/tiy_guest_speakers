@@ -7,7 +7,7 @@ class Api::TalksController < Api::ApiController
   end
 
   def index
-    @talks = Talk.all
+    @talks = Talk.all.sort_by { |a| a.date }.reverse
   end
 
   def show
