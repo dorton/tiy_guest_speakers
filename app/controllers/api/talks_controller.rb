@@ -35,6 +35,17 @@ class Api::TalksController < Api::ApiController
     format.json { head :no_content }
   end
 
+  def query
+    date = params[:q]
+    if date.split("-")[1].first == "W"
+      # grab the week number from: 2015-W48
+      week = date.split("-")[1].last(2)
+      year = date.first(4)
+      date = Talk.matching_talks(week, year)
+    end
+    @talks = Talk.where(date: date)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_talk
