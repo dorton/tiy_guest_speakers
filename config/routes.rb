@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :speakers
     resources :talks
-    get "/talks/q/:q", to: 'talks#query', as: 'api_query'
   end
 
 

@@ -46,6 +46,10 @@ class Api::TalksController < Api::ApiController
     @talks = Talk.where(date: date)
   end
 
+  def meetups
+    #code
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_talk
